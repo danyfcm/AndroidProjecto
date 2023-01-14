@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Cinema</string>
+    <string name="Add">Add</string>
+    <string name="List">List</string>
+    <string name="NomedoFilme">Nome do Filme</string>
+
+</resources>
