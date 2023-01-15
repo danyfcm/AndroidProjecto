@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
@@ -33,11 +34,16 @@ class MyAdapter(private val filmeList : ArrayList<Filme>) : RecyclerView.Adapter
     override fun onBindViewHolder( holder: MyAdapter.MyViewHolder, position: Int ) {
         val filme : Filme = filmeList[position]
 
-        val storageRef = FirebaseStorage.getInstance().reference.child("images/${filme.Imagem}")
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${filme.Imagem}.jpg")
 
         val localfile = File.createTempFile("tempImage", "jpg")
         storageRef.getFile(localfile).addOnSuccessListener { 
-            
+
+            val bitmap = BitmapFactory.decodeFile( localfile.absolutePath )
+            holder.imageview.setImageBitmap(bitmap)
+
+        }.addOnFailureListener{
+            Toast.makeText( holder.imageview.context, "Failed to retreieve image ${filme.Imagem}", Toast.LENGTH_SHORT).show()
         }
 
         //holder.button.text = filme.Nome

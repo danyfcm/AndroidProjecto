@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,8 +43,8 @@ class MainActivity : AppCompatActivity() {
     private fun EventChangeListener() {
 
         db = FirebaseFirestore.getInstance()
-        db.collection("Filmes").
-            addSnapshotListener(object : EventListener<QuerySnapshot> {
+        db.collection("Filmes")
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
 
                 override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                     if(error != null) {

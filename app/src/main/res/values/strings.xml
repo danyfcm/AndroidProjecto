@@ -9,5 +9,10 @@
     <string name="GenerodoFilme">Genero</string>
     <string name="RealizadordoFilme">Realizador</string>
     <string name="SinopsedoFilme">Sinopse do Filme</string>
+    <string name="DataEstreia">Data de Estreia</string>
+    <string name="Genero">Gênero</string>
+    <string name="Realizador">Realizador</string>
+    <string name="Pais">País</string>
+    <string name="Sinopse">Sinopse</string>
 
 </resources>
