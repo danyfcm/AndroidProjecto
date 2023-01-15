@@ -6,14 +6,19 @@ import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.os.AsyncTask
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projecto.databinding.ActivityMainBinding
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 import java.io.InputStream
 import java.net.URL
 
@@ -28,14 +33,18 @@ class MyAdapter(private val filmeList : ArrayList<Filme>) : RecyclerView.Adapter
     override fun onBindViewHolder( holder: MyAdapter.MyViewHolder, position: Int ) {
         val filme : Filme = filmeList[position]
 
+        val storageRef = FirebaseStorage.getInstance().reference.child("images/${filme.Imagem}")
 
+        val localfile = File.createTempFile("tempImage", "jpg")
+        storageRef.getFile(localfile).addOnSuccessListener { 
+            
+        }
 
+        //holder.button.text = filme.Nome
 
+        holder.imageview.setOnClickListener {
 
-        holder.button.text = filme.Nome
-        holder.button.setOnClickListener {
-
-            val intent = Intent( holder.button.context, FilmeDetalhes::class.java )
+            val intent = Intent( holder.imageview.context, FilmeDetalhes::class.java )
 
             intent.putExtra( "Nome",             filme.Nome )
             intent.putExtra( "Data",             filme.Data )
@@ -45,7 +54,7 @@ class MyAdapter(private val filmeList : ArrayList<Filme>) : RecyclerView.Adapter
             intent.putExtra( "Realizador", filme.Realizador )
             intent.putExtra( "Sinopse",       filme.Sinopse )
 
-            holder.button.context.startActivity( intent )
+            holder.imageview.context.startActivity( intent )
 
         }
     }
@@ -56,7 +65,7 @@ class MyAdapter(private val filmeList : ArrayList<Filme>) : RecyclerView.Adapter
 
     public class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val button : Button = itemView.findViewById(R.id.buttonFilme)
+        val imageview : ImageView = itemView.findViewById(R.id.imageViewFilme)
 
     }
 
