@@ -1,12 +1,21 @@
 package com.example.projecto
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.graphics.drawable.toDrawable
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import java.io.InputStream
+import java.net.URL
 
 class MyAdapter(private val filmeList : ArrayList<Filme>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
@@ -19,19 +28,24 @@ class MyAdapter(private val filmeList : ArrayList<Filme>) : RecyclerView.Adapter
     override fun onBindViewHolder( holder: MyAdapter.MyViewHolder, position: Int ) {
         val filme : Filme = filmeList[position]
 
+
+
+
+
         holder.button.text = filme.Nome
         holder.button.setOnClickListener {
 
-            val intent = Intent(holder.button.context, FilmeDetalhes::class.java)
-            intent.putExtra("Nome", filme.Nome)
-            intent.putExtra("Data", filme.Data)
-            intent.putExtra("Genero", filme.Genero)
-            intent.putExtra("Pais", filme.Pais)
-            intent.putExtra("Realizador", filme.Realizador)
-            intent.putExtra("Sinopse", filme.Sinopse)
+            val intent = Intent( holder.button.context, FilmeDetalhes::class.java )
 
+            intent.putExtra( "Nome",             filme.Nome )
+            intent.putExtra( "Data",             filme.Data )
+            intent.putExtra( "Genero",         filme.Genero )
+            intent.putExtra( "Imagem",         filme.Imagem )
+            intent.putExtra( "Pais",             filme.Pais )
+            intent.putExtra( "Realizador", filme.Realizador )
+            intent.putExtra( "Sinopse",       filme.Sinopse )
 
-            holder.button.context.startActivity(intent)
+            holder.button.context.startActivity( intent )
 
         }
     }

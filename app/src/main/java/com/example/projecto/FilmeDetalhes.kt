@@ -11,16 +11,19 @@ class FilmeDetalhes : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filme_detalhes)
 
-        val textView = findViewById<TextView>(R.id.textViewDetails)
-        var texto = ""
-        texto += "Nome:       " + intent.getStringExtra("Nome") + "\n"
-        texto += "Data:       " + intent.getStringExtra("Data") + "\n"
-        texto += "Genero:     " + intent.getStringExtra("Genero") + "\n"
-        texto += "Pais:       " + intent.getStringExtra("Pais") + "\n"
-        texto += "Realizador: " + intent.getStringExtra("Realizador") + "\n"
-        texto += "Sinopse:    " + intent.getStringExtra("Sinopse") + "\n"
+        val textViewNome        = findViewById<TextView>( R.id.textViewDetailsNome       )
+        val textViewData        = findViewById<TextView>( R.id.textViewDetailsData       )
+        val textViewGenero      = findViewById<TextView>( R.id.textViewDetailsGenero     )
+        val textViewPais        = findViewById<TextView>( R.id.textViewDetailsPais       )
+        val textViewRealizador  = findViewById<TextView>( R.id.textViewDetailsRealizador )
+        val textViewSinopse     = findViewById<TextView>( R.id.textViewDetailsSinopse    )
 
-        textView.text = texto
+        textViewNome.text       = intent.getStringExtra( "Nome"       )
+        textViewData.text       = intent.getStringExtra( "Data"       )
+        textViewGenero.text     = intent.getStringExtra( "Genero"     )
+        textViewPais.text       = intent.getStringExtra( "Pais"       )
+        textViewRealizador.text = intent.getStringExtra( "Realizador" )
+        textViewSinopse.text    = intent.getStringExtra( "Sinopse"    )
 
     }
 }

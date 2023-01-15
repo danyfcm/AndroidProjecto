@@ -6,17 +6,95 @@
     android:layout_height="match_parent"
     tools:context=".FilmeDetalhes">
 
-    <TextView
-        android:id="@+id/textViewDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/NomedoFilme"
-        android:textSize="24sp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5">
+
+        <TextView
+            android:id="@+id/textViewDetailsNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/NomedoFilme"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewDetailsData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/DatadoFilme"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="5dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewDetailsGenero"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/GenerodoFilme"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewDetailsRealizador"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/RealizadordoFilme"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewDetailsPais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/PaisdoFilme"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="5dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/textViewDetailsSinopse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/SinopsedoFilme"
+            android:textSize="24sp"
+            android:layout_margin="5dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
